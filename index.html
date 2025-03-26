@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body id="main">
+        
         <header>
             <div class="container">
                 <div class="header-content">
@@ -21,11 +22,18 @@
                         <img class="header-content_logo"  src="assets/image/Лого.png" alt="Tonkotsu Tales Logo">
                     </a>
 
-                    <nav>
+                    <nav class="nav">
+    
                         <a href="#create">Menu</a>
                         <a href="#cooks">Our Cooks</a>
                         <a href="#contacts">About Us</a>
                     </nav>
+
+                    <div class="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
                 </div>
             </div>
@@ -34,7 +42,7 @@
         <main>
             <div class="container">
                 <div class="main-content">
-                    <div>
+                    <div class="box">
                         <div class="background-text">豚骨物語</div>
                         
                         <div class="text-content">
@@ -45,7 +53,7 @@
                             
                             <div>
                                 <a href="#create" class="menu-button">MENU
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16" fill="none">
+                                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="16" viewBox="0 0 30 16" fill="none">
                                         <path d="M29.216 8.70711C29.6066 8.31658 29.6066 7.68342 29.216 7.29289L22.8521 0.928932C22.4615 0.538408 21.8284 0.538408 21.4379 0.928932C21.0473 1.31946 21.0473 1.95262 21.4379 2.34315L27.0947 8L21.4379 13.6569C21.0473 14.0474 21.0473 14.6805 21.4379 15.0711C21.8284 15.4616 22.4615 15.4616 22.8521 15.0711L29.216 8.70711ZM0.491074 9H28.5089V7H0.491074V9Z" fill="#F1F0E5"/>
                                     </svg>
                                 </a>
@@ -358,6 +366,12 @@
                 <p>&copy; 2025 Tonkotsu Tales | All rights reserved</p>
             </div>
         </footer>
+        <script>
+            document.querySelector('.burger').addEventListener('click', function() {
+                this.classList.toggle('active');
+                document.querySelector('.nav').classList.toggle('open');
+            })
+        </script>
     </body>
 </html>
  
