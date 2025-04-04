@@ -212,16 +212,25 @@ main {
 
 /* Адаптив для планшетів (до 768px) */
 @media (max-width: 768px) {
+
+    header .container {
+        height: 5vw;
+    }
     .main-content {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        height: 125vw; 
     }
 
     .box {
-        transform: translateY(-170px); 
+        transform: translateY(-29vw); 
     }
+
+    /* .container {
+        height: 830px;
+    } */
 
     .header-content {
         flex-direction: row; 
@@ -230,29 +239,30 @@ main {
 
     nav a {
         margin-right: 50px;
+        font-size: 16px;
     }
 
     .header-content_logo {
-        max-width: 70%;
+        max-width: 80%;
     }
 
-
     .text-content {
-        max-width: 90%;
+        max-width: 100%;
         margin-top: 0px;
     }
 
     .text-content h1 {
-        font-size: 120px;
-        max-width: 90%;
+        font-size: 16vw;
+        width: 90vw;
         text-align: left; 
+        left: 0;
         margin-top: 0;
     }
     
     .text-content p {
-        font-size: 16px;
-        line-height: 23.2px;
-        width: 280px;
+        font-size: 2vw;
+        line-height: 3vw;
+        width: 35vw;
         margin-top: 20px;
     }
 
@@ -262,29 +272,29 @@ main {
         align-self: center;
         object-fit: contain;
         height: auto;
-        top: -320px;
-        left: 40px;
+        top: -47vw;
+        left: 0vw;
     }
 
     .menu-button {
-        margin-top: 28px;
-        font-size: 16px; 
-        padding: 12.8px 24px;
-        gap: 7px; 
+        margin-top: 3.5vw;
+        font-size: 2vw; 
+        padding: 1.6vw 3vw;
+        gap: 1.2vw; 
     }
 
     .arrow {
-        width: 24px;
-        height: 12.8px;
+        width: 3vw;
+        height: 1.6vw;
     }
 
     .background-text {
         position: relative;
-        font-size: 100px;
-        line-height: 110px;
-        left: 60%; 
-        width: 40%;
-        top: 260px;
+        font-size: 16vw;
+        line-height: 18vw;
+        left: 52vw; 
+        width: 40vw;
+        top: 33vw;
     }
 
     .container {
@@ -301,7 +311,7 @@ main {
     }
 
     .box {
-        transform: translateY(-380px); 
+        transform: translateY(-80vw); 
     }
 
     .burger {
@@ -343,26 +353,28 @@ main {
     }
 
     .text-content h1 {
-        font-size: 100px; 
+        font-size: 21vw; 
         width: 50px;
         text-align: center; 
         margin-top: 0;
     }
 
     .text-content p {
-        font-size: 14px; 
+        font-size: 3.3vw; 
+        line-height: 4.5vw;
+        width: 60vw;
     }
 
     .menu-button {
-        margin-top: 28px;
-        font-size: 16px; 
-        padding: 11.2px 21px;
-        gap: 7px; 
+        margin-top: 5vw;
+        font-size: 3.3vw; 
+        padding: 2.385vw 4.5vw;
+        gap: 1.5vw; 
     }
 
     .arrow {
-        width: 21px;
-        height: 11.2px;
+        width: 4.5vw;
+        height: 2.385vw;
     }
     
     .main-img {
@@ -371,17 +383,17 @@ main {
         align-self: center;
         object-fit: contain;
         height: auto;
-        top: -480px;
+        top: -100vw;
         left: 0px; right: 0;
     }
 
     .background-text {
         position: relative;
-        font-size: 100px; 
+        font-size: 21vw; 
         width: 100px;
-        top: 400px; 
-        line-height: 110px;
-        left: 320px;
+        top: 83vw; 
+        line-height: 22vw;
+        left: 70vw;
     }
 
     .container {
@@ -407,8 +419,7 @@ main {
     font-size: 114px;
     font-family: "Anton", sans-serif;
     font-weight: 400;
-    line-height: 110%;
-    margin-top: 0;
+    line-height: 130px;
 }
 
 .titles-container {
@@ -417,7 +428,7 @@ main {
     justify-content: flex-start; 
     align-items: center;
     text-align: center;
-    gap: 350px;
+    gap: 380px;
     margin-bottom: 50px; 
     height: 73px;
 }
@@ -655,17 +666,553 @@ ellipse {
     opacity: 20%;
     font-size: 140px;
     font-family: "Inter", sans-serif; 
-    margin-top: 90px;
+    margin-top: 80px;
     left: 864px;
     right: 0;
 }
 
+.inner {
+    height: 1146px;
+}
+
 .create-inner {
+    display: block;
     position: relative;
-    transform: translate(-200px, 100px);
+    flex-direction: row;
+    transform: translate(500px, -1030px);
     width: 848px; 
     height: 1017px; 
     object-fit: contain; 
+}
+
+@media (max-width: 768px) {
+    .create {
+        margin-top: 10vw;
+        height: auto;
+        /* height: 437vw; */
+    }
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        justify-content: flex-start;
+        text-align: center; 
+        padding: 0 20px;
+        height: auto;
+    }
+
+    #create .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: auto;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+
+    .inner {
+        width: 100%; /* Ширина на всю ширину контейнера */
+        margin: 0 auto; /* Центрування */
+        padding: 0 10px; /* Відступи по краях */
+        box-sizing: border-box; /* Враховує відступи в ширині */
+    }
+
+    .inner h3 {
+        font-size: 6vw ;
+        /* line-height: 100%;  */
+        margin-top: 6vw;
+    }
+
+    .titles-container {
+        display: block;
+        margin-top: 0;
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .noodles h3 {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3vw; 
+    }
+
+    .ellipse {
+        width: auto;
+        height: 1.35vw;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .icon-item {
+        gap: 1.2vw;
+    }
+
+    .icon-item img {
+        display: block;
+        margin-top: 0px;
+        max-width: 90%;
+    }
+
+    #create .icons h4 {
+        font-size: 2.675vw;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: flex-start;
+        gap: 19vw;
+    }
+
+    .base-content h4, .noodles-content h4 {
+        font-size: 2.675vw;
+    }
+
+    .base h3 {
+        margin-top: 10vw;
+    }
+
+    .base p {
+        text-align: left;
+        width: 57vw;
+        font-size: 2.2vw;
+        line-height: 3.4vw;
+    }
+
+    .toppings {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .toppings h3 {
+        margin-top: 10vw;
+        margin-bottom: 7vw;
+    }
+    
+    .first-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        margin-bottom: 7vw;
+        gap: 7vw; 
+    }
+    
+    .first-row .eggs, 
+    .first-row .narutomaki, 
+    .first-row .corn {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .first-row  .eggs h4 {
+        margin-top: 5vw;
+    }
+    
+    .first-row .narutomaki h4 {
+        margin-top: 5vw; 
+    }
+    
+    .first-row .corn h4 {
+        margin-top: 7vw; 
+    }
+    
+    .toppings-icons .first-row div,
+    .toppings-icons .second-row div {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .first-row img {
+        display: block;
+    }
+    
+    .first-row h4 {
+        margin: 0;
+        font-size: 2.675vw;
+    }
+    
+    .second-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        gap: 7vw; 
+    }
+    
+    .second-row div {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+    
+    .second-row .meat, 
+    .second-row .onion, 
+    .second-row .mashrooms {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .second-row  .meat h4 {
+        margin-top: 5vw;
+    }
+    
+    .second-row .onion h4 {
+        margin-top: 5vw; 
+        width: 90px;
+    }
+    
+    .second-row .mashrooms h4 {
+        margin-top: 3vw; 
+    }
+    
+    .second-row img {
+        display: block;
+    }
+    
+    .second-row h4 {
+        margin: 0;
+        font-size: 2.675vw;
+    }
+
+    .toppings-icons img {
+        display: block;
+        max-width: 80%;
+    }
+
+    #create .background-text {
+        font-size: 16vw;
+        line-height: 18vw;
+        left: 70vw; 
+        width: 20vw;
+        top: 75vw;
+
+        /* top: 550px;
+        left: 570px; */
+        margin-top: 0;
+    }
+
+    #create .create-inner {
+        width: 100%; 
+        display: flex;
+        justify-content: center; 
+    }
+
+    #create .create-inner img {
+        position: relative;
+        width: 100vw;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 35vw;
+        top: -20vw;
+    }
+
+    .inner {
+        margin-top: 8vw;
+    }
+
+    #create .base,
+    #create .toppings,
+    #create .toppings-icons {
+        text-align: center; /* Центрування тексту */
+    }
+
+    .create-inner {
+        width: 100%;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 0vw;
+        height: auto;
+        top: -40vw;
+        transform: translate(-33vw, 66vw);
+    }
+}
+
+@media (max-width: 688px) {
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 0 20px;
+        height: 347vw;
+    }
+
+    .titles-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 32vw; 
+        margin-bottom: 7vw;
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column; 
+        gap: 20vw; 
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5vw;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;/* Центрування елементів */
+        gap: 20px; /* Відстань між елементами */
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .create {
+        margin-top: 30vw;
+    }
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 0 10px;
+        height: 315vw;
+    }
+
+    #create .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: 33.5vw;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+
+    .inner {
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    .inner h3 {
+        font-size: 10vw;
+        margin-top: 6vw;
+    }
+
+    .titles-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 40vw; 
+        margin-bottom: 3vw;
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column; 
+        gap: 20vw; 
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 7vw;
+        margin-top: 4vw;
+    }
+
+    #create .icons h4 {
+        font-size: 4vw;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;
+        gap: 3vw; 
+    }
+
+    .noodles h3 {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .ellipse {
+        width: auto;
+        height: 1.7vw;
+    }
+
+    .icon-item img {
+        display: block;
+        margin-top: 0px;
+        max-width: 80%;
+    }
+
+    .icon-item h4 {
+        margin-top: 4vw;
+        font-size: 2.7vw;
+    }
+
+    .base-content h4, .noodles-content h4 {
+        font-size: 4vw;
+    }
+
+    .base-content {
+        margin-top: 6vw;
+        gap: 3vw;
+    }
+
+    .base h3 {
+        margin-top: 10vw;
+    }
+
+    .base p {
+        margin-top: 3vw;
+        text-align: left;
+        width: 100%;
+        font-size: 3.6vw;
+        line-height: 5vw;
+    }
+    
+    .toppings h3 {
+        margin-top: 10vw;
+        margin-bottom: 7vw;
+    }
+    
+    .first-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        margin-bottom: 7vw;
+        gap: 7vw; 
+    }
+    
+    .first-row .eggs, 
+    .first-row .narutomaki, 
+    .first-row .corn {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .first-row  .eggs h4 {
+        margin-top: 5vw;
+    }
+    
+    .first-row .narutomaki h4 {
+        margin-top: 5vw; 
+    }
+    
+    .first-row .corn h4 {
+        margin-top: 7vw; 
+    }
+    
+    .first-row h4 {
+        margin: 0;
+        font-size: 4vw;
+    }
+    
+    .second-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        gap: 7vw; 
+    }
+    
+    .second-row  .meat h4 {
+        margin-top: 5vw;
+    }
+    
+    .second-row .onion h4 {
+        margin-top: 5vw; 
+        width: 90px;
+    }
+    
+    .second-row .mashrooms h4 {
+        margin-top: 3vw; 
+    }
+    
+    .second-row h4 {
+        margin: 0;
+        font-size: 4vw;
+    }
+
+    .toppings-icons img {
+        display: block;
+        max-width: 80%;
+    }
+
+    #create .background-text {
+        font-size: 21vw;
+        line-height: 18vw;
+        left: 70vw; 
+        width: 20vw;
+        top: 75vw;
+        margin-top: 0;
+    }
+
+    #create .create-inner {
+        width: 100%; 
+        display: flex;
+        justify-content: center; 
+    }
+
+    #create .create-inner img {
+        position: relative;
+        width: 100vw;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 35vw;
+        top: -15vw;
+    }
+
+    #create .base,
+    #create .toppings,
+    #create .toppings-icons {
+        text-align: center; /* Центрування тексту */
+    }
 }
 
 /* SECTION 2 */
@@ -881,6 +1428,349 @@ ellipse {
     stroke: var(--orange);
 }
 
+@media (max-width: 768px) {
+
+    .menu {
+        margin-top: 130vw;
+    }
+
+    .menu .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tonkotsu {
+        width: 100%;
+        height: auto;
+        margin-bottom: 7vw;
+        left: 4vw;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: 100%;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+    
+    .menu .container .background-text1 {
+        position: absolute;
+        color: var(--black);
+        top: 15vw;
+        left: 0vw;
+    }
+    
+    .menu .container h2 {
+        font-size: 114px;
+        font-weight: 400;
+        margin-top: 0;
+    }
+    
+    .first-of-type {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0px; 
+        margin-top: 94vw;
+    }
+    
+    .title1, .title2 {
+        margin-top: 0;
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        gap: 350px;
+        margin-bottom: 50px; 
+    }
+    
+    .title1 h3 {
+        margin-top: 0;
+        margin-right: 0;
+        width: 100vw;
+    }
+    
+    .receipt1 {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 20vw;
+    }
+    
+    .ingridients1, .ingridients2, .weight1, .weight2 {
+        text-align: left; 
+    }
+    
+    .ingridients1 p, .ingridients2 p{
+        margin-bottom: 3vw;
+    }
+    
+    .ingridients1, .ingridients2 {
+        font-size: 3.3vw; 
+        line-height: 4.5vw;
+    }
+    
+    .weight1 p, .weight2 p {
+        margin-bottom: 3vw;
+    }
+    
+    .weight1, .weight2 {
+        text-align: right;
+        font-size: 3.3vw; 
+        line-height: 4.5vw;
+        gap: 3vw;
+    }
+    
+    .cost1 {
+        text-align: right;
+        font-size: 3.7vw;
+        margin-top: 27vw;
+    }
+    
+    .miso {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        margin-top: 7vw;
+        margin-bottom: 7vw;
+        left: 4vw;
+    }
+    
+    .menu .container .background-text2 {
+        position: relative;
+        color: var(--black);
+        opacity: 20%;
+        font-size: 140px;
+        font-family: "Inter", sans-serif; 
+        top: 900px;
+        left: 552px;
+    }
+    
+    .second-of-type {
+        display: flex;
+        flex-direction: column; 
+        margin-top: 75px;
+        width: 511px;
+        text-align: left;  
+    }
+    
+    .title2 h3 {
+        margin-top: 94vw;
+        margin-right: 0;
+    }
+    
+    .receipt2 {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+    
+    .cost2 {
+        text-align: right;
+        font-size: 3.7vw;
+        margin-top: 27vw;
+    }
+    
+    .menu .container .view-button {
+        display: flex;
+        justify-content: center; 
+        align-items: center;  
+    }
+    
+    .view-button {
+        display: flex;
+        position: relative; 
+        align-items: center; 
+        gap: 2vw; 
+        cursor: pointer; 
+        top: 6vw;
+        transition: color 0.3s ease; 
+    }
+}
+
+@media (max-width: 688px) {
+    .menu {
+        margin-top: 14vw;
+    }
+
+    .menu .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tonkotsu {
+        width: 100%;
+        height: auto;
+        margin-bottom: 7vw;
+        left: 4vw;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: 100%;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+    .menu .container .background-text1 {
+        position: absolute;
+        color: var(--black);
+        top: 18vw;
+        left: 0vw;
+    }
+    
+    .menu .container h2 {
+        font-size: 17vw;
+        font-weight: 400;
+        margin-top: 0;
+    }
+    
+    .first-of-type {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0px; 
+        margin-top: 110vw;
+    }
+    
+    .title1, .title2 {
+        margin-top: 0;
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        margin-bottom: 7vw; 
+    }
+    
+    .title1 h3 {
+        margin-top: 0vw;
+        margin-right: 0;
+        height: auto;
+        width: 100vw;
+    }
+
+    .title2 h3 {
+        margin-top: 0vw;
+        margin-right: 0;
+        height: auto;
+        width: 100vw;
+    }
+    
+    .receipt1 {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 20vw;
+    }
+    
+    .ingridients1, .ingridients2, .weight1, .weight2 {
+        text-align: left; 
+    }
+    
+    .ingridients1 p, .ingridients2 p{
+        margin-bottom: 3vw;
+    }
+    
+    .ingridients1, .ingridients2 {
+        font-size: 3.3vw; 
+        line-height: 4.5vw;
+    }
+    
+    .weight1 p, .weight2 p {
+        margin-bottom: 3vw;
+    }
+    
+    .weight1, .weight2 {
+        text-align: right;
+        font-size: 3.3vw; 
+        line-height: 4.5vw;
+        gap: 3vw;
+    }
+    
+    .cost1 {
+        text-align: right;
+        font-size: 3.7vw;
+        margin-top: 27vw;
+    }
+
+    .menu .container .background-text2 {
+        position: absolute;
+        font-size: 140px;
+        top: 90px;
+        left: 50px;
+    }
+    
+    .second-of-type {
+        display: flex;
+        flex-direction: column; 
+        margin-top: 75vw;
+        width: auto;
+        text-align: left;  
+    }
+    
+    .title2 h3 {
+        margin-top: 7vw;
+        height: auto;
+        margin-right: 0;
+    }
+    
+    .receipt2 {
+        margin-top: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+    
+    .cost2 {
+        text-align: right;
+        margin-left: auto;
+        margin-top: 198px;
+        color: var(--orange);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+    }
+    
+    .menu .container .view-button {
+        display: flex;
+        justify-content: center; 
+        align-items: center;  
+    }
+    
+    .view-button {
+        display: flex;
+        position: relative; 
+        align-items: center; 
+        gap: 15px; 
+        background: none; 
+        border: none;
+        color: var(--black); 
+        font-family: Inter, sans-serif; 
+        font-size: 18px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        top: 62px;
+        transition: color 0.3s ease; 
+    }
+    
+    .view-button svg {
+        flex-shrink: 0;
+        stroke: var(--black);
+        cursor: pointer;
+        transition: stroke 0.3s ease; 
+    }
+    
+    .view-button:hover {
+        color: var(--orange);
+    }
+    
+    .view-button:hover svg {
+        stroke: var(--orange);
+    }
+}
+
 /* SECTION 3 */
 
 .cooks {
@@ -983,6 +1873,12 @@ h2 {
     line-height: 29px;
     width: 470px;
     margin-top: 0px;
+}
+
+@media (max-width: 768px) {
+    .cooks {
+        margin-top: 300vw;
+    }
 }
 
 /* SECTION 4 */
