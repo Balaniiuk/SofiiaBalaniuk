@@ -264,6 +264,8 @@
                     味噌
                 </div>
 
+                <div id="dynamic-content"></div>
+
                 <button class="view-button">VIEW MORE<svg xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 23 12" fill="none">
                     <path d="M1 1L11.2 10L22 1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                     </svg>
@@ -303,6 +305,50 @@
                         <h4>RYO TANAKA – SOUS CHEF</h4>
                         <p>Ryo Tanaka is the right hand of the Head Chef, assisting in preparation, plating, and innovation. Skilled in precision and technique, he ensures every ingredient is fresh and every dish is executed to perfection. His passion for ramen elevates every bowl to an unforgettable experience.</p>
                     </div>  
+                </div>
+            </div>
+        </section>
+
+        <section id="feedback" class="feedback">
+            <div class="container">
+                <div class="head">
+                    <h2>POST A COMMENT</h2>
+                    
+                    <div class="alltogether">
+                        <div class="emty">
+                            <div id="comment" class="comment"><span>0</span> Comments</div>
+                            <div class="text"><p>We are happy to hear from you</p></div>
+                            <div class="comments"></div>
+                        </div>
+
+                        <div class="img-n-form">
+                            <div class="commentbox">
+                                <img src="assets/image/user.png" alt="user image">
+                            </div>
+                            
+                            <div class="form">
+                                <div class="content">
+                                    <p>Comment as: </p>
+                                    <input type="text" placeholder="Enter your name..." class="user">
+                                </div>
+            
+                                <div class="commentinput">
+                                    <input type="text" placeholder="Enter your comment..." class="usercomment">
+                                    <div class="bottom-bar">
+                                        <div class="buttons">
+                                            <button type="submit" disabled id="publish" class="publish-button">PUBLISH</button>
+                                        </div>
+                                        <!-- <div class="notify">
+                                            <input type="checkbox" class="notifyin"> <span>Notify me</span>
+                                        </div> -->
+                                    </div>
+                                </div>
+            
+                                <p class="policy">This site is protected by reCAPTCHA and the Google <a href="">privacy policy</a> and <a href="">Terms of Service</a> apply.
+                                </p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -366,11 +412,124 @@
                 <p>&copy; 2025 Tonkotsu Tales | All rights reserved</p>
             </div>
         </footer>
+        
         <script>
             document.querySelector('.burger').addEventListener('click', function() {
                 this.classList.toggle('active');
                 document.querySelector('.nav').classList.toggle('open');
-            })
+            });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const viewButton = document.querySelector(".view-button");
+                const dynamicContent = document.getElementById("dynamic-content");
+
+                let isContentVisible = false;
+
+                viewButton.addEventListener("click", () => {
+                    if (!isContentVisible) {
+                        fetch("third-of-type.html")
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error("Failed to load content");
+                                }
+                                return response.text();
+                            })
+                            .then((html) => {
+                                dynamicContent.innerHTML = html;
+
+                                setTimeout(() => {
+                                    dynamicContent.classList.add("visible");
+                                }, 50); 
+
+            
+                                const elements = dynamicContent.children;
+                                for (let i = 0; i < elements.length; i++) {
+                                    elements[i].style.display = "block"; 
+                                }
+
+                                viewButton.innerHTML = `VIEW LESS<svg xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 23 12" fill="none">
+                                    <path d="M1 10L11.2 1L22 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                </svg>`;
+                                isContentVisible = true; 
+                            })
+                            .catch((error) => {
+                                console.error("Error loading content:", error);
+                            });
+                    } else {
+                        dynamicContent.classList.remove("visible"); 
+                        setTimeout(() => {
+                            dynamicContent.innerHTML = ""; 
+                        }, 500); 
+
+                        viewButton.innerHTML = `VIEW MORE<svg xmlns="http://www.w3.org/2000/svg" width="21" height="9" viewBox="0 0 23 12" fill="none">
+                            <path d="M1 1L11.2 10L22 1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>`;
+                        isContentVisible = false; 
+                    }
+                });
+            });
+
+            "use strict";
+
+            const userId = { 
+                name: null,
+                identity: null,
+                image: null,
+                message: null,
+                date: null
+            }
+
+            const userComment = document.querySelector(".usercomment");
+            const publishBtn = document.querySelector("#publish");
+            const comments = document.querySelector(".comments");
+            const userName = document.querySelector(".user");
+
+            function PublishButton() {
+                if (userName.value.trim() && userComment.value.trim()) {
+                    publishBtn.removeAttribute("disabled");
+                    publishBtn.classList.add("abled");
+                } else {
+                    publishBtn.setAttribute("disabled", "disabled");
+                    publishBtn.classList.remove("abled");
+                }
+            }
+
+            userComment.addEventListener("input", PublishButton);
+            userName.addEventListener("input", PublishButton);
+                
+            function addPost() {
+                if(!userComment.value) return;
+                userId.name = userName.value;
+                if(userId.name === "Anonymous") {
+                    userId.identity = "false";
+                    userId.image = "assets/image/incognito.png";
+                } else{
+                    userId.identity = "true";
+                    userId.image = "assets/image/user.png";
+                }
+
+                userId.message = userComment.value;
+                userId.date = new Date().toLocaleString();
+                let published = 
+                `<div class= "parents">
+                    <img src="${userId.image}">
+                    <div>
+                        <h4>${userId.name}</h4>
+                        <p>${userId.message}</p>
+                        <div class="engagements"><img src="assets/image/heart.png"><img src="assets/image/share.png"></div>
+                        <span class="date">${userId.date}</span>
+                    </div>
+                </div>`;
+
+                comments.innerHTML += published;
+                userComment.value = "";
+
+                let commentsNum = document.querySelectorAll(".parents").length;
+                document.querySelector("#comment span").textContent = commentsNum;
+            }  
+
+            publishBtn.addEventListener("click", addPost)
+
         </script>
     </body>
 </html>

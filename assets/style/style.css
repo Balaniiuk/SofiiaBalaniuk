@@ -1230,6 +1230,15 @@ ellipse {
     height: auto;
 }
 
+.tori {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 569.699px;
+    height: auto;
+    top: 140px;
+}
+
 .menu .container .background-text1 {
     position: absolute;
     color: var(--black);
@@ -1244,7 +1253,7 @@ ellipse {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 1730px;
+    height: auto;
 }
 
 .center-text {
@@ -1268,14 +1277,45 @@ ellipse {
     margin-top: 0;
 }
 
-.first-of-type {
+.first-of-type, .third-of-type {
     display: flex;
     flex-direction: column; 
     margin-left: 714px; 
     text-align: left;  
+    height: auto;
 }
 
-.title1, .title2 {
+.block3 {
+    margin-top: 100px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.third-of-type {
+    display: block; /* Переконайтеся, що елемент відображається */
+    width: 100%;
+    margin-top: 75px;
+    height: 650px;
+    
+}
+
+.third-of-type.show {
+    display: block;
+    opacity: 1;
+}
+
+.menu .container .background-text3 {
+    position: absolute;
+    color: var(--black);
+    opacity: 20%;
+    font-size: 140px;
+    font-family: "Inter", sans-serif; 
+    top: 30px;
+    left: 0px;
+}
+
+.title1, .title2, .title3 {
     margin-top: 0;
     display: flex;
     justify-content: flex-start; 
@@ -1284,27 +1324,27 @@ ellipse {
     margin-bottom: 50px; 
 }
 
-.title1 h3 {
+.title1 h3, .title3 h3 {
     margin-top: 0;
     margin-right: 0;
 }
 
-.receipt1 {
+.receipt1, .receipt3 {
     margin-top: 0;
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 230px;
 }
 
-.ingridients1, .ingridients2, .weight1, .weight2 {
+.ingridients1, .ingridients2, .ingridients3 .weight1, .weight2, .weight3 {
     text-align: left; 
 }
 
-.ingridients1 p, .ingridients2 p{
+.ingridients1 p, .ingridients2 p, .ingridients3 p {
     margin-bottom: 20px;
 }
 
-.ingridients1, .ingridients2 {
+.ingridients1, .ingridients2, .ingridients3 {
     color: var(--black);
     font-family: Inter;
     font-size: 18px;
@@ -1313,23 +1353,21 @@ ellipse {
     line-height: 30px;
 }
 
-.weight1 p, .weight2 p {
+.weight1 p, .weight2 p, .weight3 p {
     margin-bottom: 20px;
 }
 
-.weight1, .weight2 {
+.weight1, .weight2, .weight3 {
     text-align: right; 
-    margin-left: auto;
     color: var(--black);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 30px;
-    gap: 20px;
 }
 
-.cost1 {
+.cost1, .cost3 {
     text-align: right;
     margin-top: 200px;
     color: var(--orange);
@@ -1340,15 +1378,6 @@ ellipse {
     line-height: 30px;
 }
 
-.miso {
-    /* position: absolute; */
-    /* top: 970px;
-    right: 0; */
-    /* left: auto; */
-    width: 705.023px;
-    height: auto;
-}
-
 .menu .container .background-text2 {
     position: absolute;
     color: var(--black);
@@ -1357,6 +1386,17 @@ ellipse {
     font-family: "Inter", sans-serif; 
     top: 900px;
     left: 552px;
+}
+
+.miso {
+    /* position: absolute; */
+    /* top: 970px;
+    right: 0; */
+    /* left: auto; */
+    position: absolute;
+    width: 705.023px;
+    height: auto;
+    right: 0;
 }
 
 .second-of-type {
@@ -1376,7 +1416,7 @@ ellipse {
     margin-top: 0;
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 120px;
 }
 
 .cost2 {
@@ -1391,6 +1431,7 @@ ellipse {
     line-height: 30px;
 }
 
+
 .menu .container .view-button {
     display: flex;
     justify-content: center; 
@@ -1398,6 +1439,7 @@ ellipse {
 }
 
 .view-button {
+    width: auto;
     display: flex;
     position: relative; 
     align-items: center; 
@@ -1409,7 +1451,7 @@ ellipse {
     font-size: 18px; 
     font-weight: 600; 
     cursor: pointer; 
-    top: 62px;
+    top: 75px;
     transition: color 0.3s ease; 
 }
 
@@ -1426,6 +1468,19 @@ ellipse {
 
 .view-button:hover svg {
     stroke: var(--orange);
+}
+
+/* Початковий стан (прихований) */
+#dynamic-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Кінцевий стан (видимий) */
+#dynamic-content.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -1751,7 +1806,7 @@ ellipse {
         font-size: 18px; 
         font-weight: 600; 
         cursor: pointer; 
-        top: 62px;
+        top: 120px;
         transition: color 0.3s ease; 
     }
     
@@ -1777,7 +1832,7 @@ ellipse {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 170px;
     position: relative;
 }
 
@@ -1790,7 +1845,7 @@ ellipse {
 
 .chopsticks {
     position: absolute;
-    top: -130px;
+    top: -100px;
     left: 950px;
     width: 459.315px;
     height: auto;
@@ -1882,6 +1937,246 @@ h2 {
 }
 
 /* SECTION 4 */
+
+.feedback .container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 120px;
+}
+
+.feedback h2 {
+    text-align: center;
+}
+
+.alltogether {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+}
+
+.emty {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 653px;
+}
+
+.comment {
+    color: rgba(25, 25, 25, 0.50);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 50px;
+}
+
+.head .text {
+    color: var(--black);
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.img-n-form {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+} 
+
+.content {
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 150% */
+}
+
+.content > input {
+    border: none;
+    margin-left: 0;
+}
+
+.commentbox img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.user {
+    bottom: none;
+    outline: none;
+    margin: 5px 0;
+    color: var(--black);
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #F1F0E5;
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 136.364% */
+    text-transform: uppercase;
+}
+
+.commentinput > input {
+    border: none;
+    background: #F1F0E5;
+    padding: 10px;
+    margin-top: 30px;
+    padding-left: none;
+    outline: none;
+    border-bottom: 2px solid var(--black);
+    width: 553px;
+    color: rgba(25, 25, 25, 0.50);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.publish-button {
+    margin-left: 406px;
+    display: inline-flex;
+    height: 54px;
+    padding: 14px 27px;
+    justify-content: center;
+    align-items: center;
+
+    color: #F1F0E5;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 166.667% */
+    color: var(--background);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: var(--yellow);
+    width: 147px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.publish-button.abled {
+    background: #f15025 !important;
+    color: #F1F0E5 !important;
+}
+
+.notify {
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+}
+
+.policy {
+    margin: 20px 0;
+    font-family: "Inter", sans-serif;
+    color: rgba(25, 25, 25, 0.50);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 560px;
+    line-height: 32px; /* 160% */
+}
+
+.policy a {
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+}
+
+.notify > input {
+    margin-right: 10px;
+
+    /* не працює */
+    width: 20px;
+    height: 20px;
+    background-color: none;
+    border: 1px solid var(--yellow);
+}
+
+.parents {
+    display: flex;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 30px;
+}
+
+.parents h4 {
+    color: black;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 136.364% */
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.parents p {
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 160% */
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.parents > img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.engagements {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.engagements img {
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: black;
+    opacity: 0.5;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+/* SECTION 5 */
 
 .contacts {
     display: flex;
