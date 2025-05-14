@@ -1,0 +1,845 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* #root {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+} */
+  
+:root {
+    --black: #191919;
+    --orange: #f15025;
+    --background: #F1F0E5;
+    --yellow: #FBAB21;
+}
+  
+h1, h2, h3, h4, p {
+    color: var(--black);
+    margin: 0;
+    padding: 0;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0px auto;
+}
+
+
+.create .container .background-text {
+    position: absolute;
+    color: var(--black);
+    opacity: 20%;
+    font-size: 140px;
+    font-family: "Inter", sans-serif; 
+    margin-top: 50px;
+    left: 864px;
+    right: 0;
+    width: 100%;
+}
+
+.create {
+    margin-top: 100px;
+    position: relative; 
+}
+
+.center-text {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 75px; 
+}
+
+.container h2 {
+    color: var(--black);
+    font-size: 114px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    line-height: 130px;
+}
+
+.titles-container {
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    text-align: center;
+    gap: 380px;
+    margin-bottom: 50px; 
+    height: 73px;
+}
+
+.broth h3 {
+    margin-top: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.noodles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.noodles h3 {
+    margin-top: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+h3 {
+    color: var(--, #191919);
+    font-family: Anton;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; 
+    text-transform: uppercase;
+    margin-top: 67px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start;
+    gap: 150px;
+}
+
+.noodles-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px; 
+    margin-top: 0px; 
+}
+
+.noodles-content h4 {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+ellipse {
+    width: 9px;
+    height: auto;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.icon-item {
+    display: flex;
+    width: 81px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.icon-item img {
+    display: block;
+    margin-top: 0px;
+}
+
+.icon-item h4 {
+    color: var(--black);
+    font-size: 22px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px; 
+}
+
+.base h3 {
+    margin-top: 75px;
+    text-align: left;
+}
+
+.base-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px; 
+    margin-top: 50px; 
+}
+
+.base-content h4 {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.base p {
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 510px;
+    line-height: 30px; 
+    margin-top: 30px;
+}
+
+.toppings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.toppings h3 {
+    margin-top: 75px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.first-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end;
+    margin-bottom: 50px;
+    gap: 50px; 
+}
+
+.first-row .eggs, 
+.first-row .narutomaki, 
+.first-row .corn {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    text-align: center; 
+}
+
+.first-row  .eggs h4 {
+    margin-top: 30px;
+}
+
+.first-row .narutomaki h4 {
+    margin-top: 30px; 
+}
+
+.first-row .corn h4 {
+    margin-top: 54px; 
+}
+
+.toppings-icons .first-row div,
+.toppings-icons .second-row div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.first-row img {
+    display: block;
+}
+
+.first-row h4 {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.second-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 70px; 
+}
+
+.second-row div {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+}
+
+.second-row .meat, 
+.second-row .onion, 
+.second-row .mashrooms {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    text-align: center; 
+}
+
+.second-row  .meat h4 {
+    margin-top: 30px;
+}
+
+.second-row .onion h4 {
+    margin-top: 35px; 
+    width: 90px;
+}
+
+.second-row .mashrooms h4 {
+    margin-top: 16px; 
+}
+
+.second-row img {
+    display: block;
+}
+
+.second-row h4 {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.inner {
+    height: 1146px;
+}
+
+.create-inner {
+    display: block;
+    position: relative;
+    flex-direction: row;
+    transform: translate(500px, -1030px);
+    width: 848px; 
+    height: 1017px; 
+    object-fit: contain; 
+}
+
+@media (max-width: 768px) {
+    .create {
+        margin-top: 10vw;
+        height: auto;
+        /* height: 437vw; */
+    }
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        justify-content: flex-start;
+        text-align: center; 
+        padding: 0 20px;
+        height: auto;
+    }
+
+    #create .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: auto;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+
+    .inner {
+        width: 100%; /* Ширина на всю ширину контейнера */
+        margin: 0 auto; /* Центрування */
+        padding: 0 10px; /* Відступи по краях */
+        box-sizing: border-box; /* Враховує відступи в ширині */
+    }
+
+    .inner h3 {
+        font-size: 6vw ;
+        /* line-height: 100%;  */
+        margin-top: 6vw;
+    }
+
+    .titles-container {
+        display: block;
+        margin-top: 0;
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .noodles h3 {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3vw; 
+    }
+
+    .ellipse {
+        width: auto;
+        height: 1.35vw;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .icon-item {
+        gap: 1.2vw;
+    }
+
+    .icon-item img {
+        display: block;
+        margin-top: 0px;
+        max-width: 90%;
+    }
+
+    #create .icons h4 {
+        font-size: 2.675vw;
+    }
+
+    .content-container {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: flex-start;
+        gap: 19vw;
+    }
+
+    .base-content h4, .noodles-content h4 {
+        font-size: 2.675vw;
+    }
+
+    .base h3 {
+        margin-top: 10vw;
+    }
+
+    .base p {
+        text-align: left;
+        width: 57vw;
+        font-size: 2.2vw;
+        line-height: 3.4vw;
+    }
+
+    .toppings {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .toppings h3 {
+        margin-top: 10vw;
+        margin-bottom: 7vw;
+    }
+    
+    .first-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        margin-bottom: 7vw;
+        gap: 7vw; 
+    }
+    
+    .first-row .eggs, 
+    .first-row .narutomaki, 
+    .first-row .corn {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .first-row  .eggs h4 {
+        margin-top: 5vw;
+    }
+    
+    .first-row .narutomaki h4 {
+        margin-top: 5vw; 
+    }
+    
+    .first-row .corn h4 {
+        margin-top: 7vw; 
+    }
+    
+    .toppings-icons .first-row div,
+    .toppings-icons .second-row div {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+    
+    .first-row img {
+        display: block;
+    }
+    
+    .first-row h4 {
+        margin: 0;
+        font-size: 2.675vw;
+    }
+    
+    .second-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        gap: 7vw; 
+    }
+    
+    .second-row div {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+    
+    .second-row .meat, 
+    .second-row .onion, 
+    .second-row .mashrooms {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .second-row  .meat h4 {
+        margin-top: 5vw;
+    }
+    
+    .second-row .onion h4 {
+        margin-top: 5vw; 
+        width: 90px;
+    }
+    
+    .second-row .mashrooms h4 {
+        margin-top: 3vw; 
+    }
+    
+    .second-row img {
+        display: block;
+    }
+    
+    .second-row h4 {
+        margin: 0;
+        font-size: 2.675vw;
+    }
+
+    .toppings-icons img {
+        display: block;
+        max-width: 80%;
+    }
+
+    #create .background-text {
+        font-size: 16vw;
+        line-height: 18vw;
+        left: 70vw; 
+        width: 20vw;
+        top: 75vw;
+
+        /* top: 550px;
+        left: 570px; */
+        margin-top: 0;
+    }
+
+    #create .create-inner {
+        width: 100%; 
+        display: flex;
+        justify-content: center; 
+    }
+
+    #create .create-inner img {
+        position: relative;
+        width: 100vw;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 35vw;
+        top: -20vw;
+    }
+
+    .inner {
+        margin-top: 8vw;
+    }
+
+    #create .base,
+    #create .toppings,
+    #create .toppings-icons {
+        text-align: center; /* Центрування тексту */
+    }
+
+    .create-inner {
+        width: 100%;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 0vw;
+        height: auto;
+        top: -40vw;
+        transform: translate(-33vw, 66vw);
+    }
+}
+
+@media (max-width: 688px) {
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 0 20px;
+        height: 347vw;
+    }
+
+    .titles-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 32vw; 
+        margin-bottom: 7vw;
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column; 
+        gap: 20vw; 
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5vw;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;/* Центрування елементів */
+        gap: 20px; /* Відстань між елементами */
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .create {
+        margin-top: 30vw;
+    }
+
+    #create .container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        padding: 0 10px;
+        height: 315vw;
+    }
+
+    #create .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .center-text h2 {
+        text-align: center;
+        height: 33.5vw;
+        font-size: 16vw;
+        line-height: 18vw;
+    }
+
+    .inner {
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    .inner h3 {
+        font-size: 10vw;
+        margin-top: 6vw;
+    }
+
+    .titles-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 40vw; 
+        margin-bottom: 3vw;
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column; 
+        gap: 20vw; 
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 7vw;
+        margin-top: 4vw;
+    }
+
+    #create .icons h4 {
+        font-size: 4vw;
+    }
+
+    .noodles-content {
+        display: flex;
+        justify-content: flex-start;
+        gap: 3vw; 
+    }
+
+    .noodles h3 {
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .ellipse {
+        width: auto;
+        height: 1.7vw;
+    }
+
+    .icon-item img {
+        display: block;
+        margin-top: 0px;
+        max-width: 80%;
+    }
+
+    .icon-item h4 {
+        margin-top: 4vw;
+        font-size: 2.7vw;
+    }
+
+    .base-content h4, .noodles-content h4 {
+        font-size: 4vw;
+    }
+
+    .base-content {
+        margin-top: 6vw;
+        gap: 3vw;
+    }
+
+    .base h3 {
+        margin-top: 10vw;
+    }
+
+    .base p {
+        margin-top: 3vw;
+        text-align: left;
+        width: 100%;
+        font-size: 3.6vw;
+        line-height: 5vw;
+    }
+    
+    .toppings h3 {
+        margin-top: 10vw;
+        margin-bottom: 7vw;
+    }
+    
+    .first-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        margin-bottom: 7vw;
+        gap: 7vw; 
+    }
+    
+    .first-row .eggs, 
+    .first-row .narutomaki, 
+    .first-row .corn {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: center; 
+    }
+    
+    .first-row  .eggs h4 {
+        margin-top: 5vw;
+    }
+    
+    .first-row .narutomaki h4 {
+        margin-top: 5vw; 
+    }
+    
+    .first-row .corn h4 {
+        margin-top: 7vw; 
+    }
+    
+    .first-row h4 {
+        margin: 0;
+        font-size: 4vw;
+    }
+    
+    .second-row {
+        display: flex;
+        flex-direction: row; 
+        align-items: flex-end;
+        gap: 7vw; 
+    }
+    
+    .second-row  .meat h4 {
+        margin-top: 5vw;
+    }
+    
+    .second-row .onion h4 {
+        margin-top: 5vw; 
+        width: 90px;
+    }
+    
+    .second-row .mashrooms h4 {
+        margin-top: 3vw; 
+    }
+    
+    .second-row h4 {
+        margin: 0;
+        font-size: 4vw;
+    }
+
+    .toppings-icons img {
+        display: block;
+        max-width: 80%;
+    }
+
+    #create .background-text {
+        font-size: 21vw;
+        line-height: 18vw;
+        left: 70vw; 
+        width: 20vw;
+        top: 75vw;
+        margin-top: 0;
+    }
+
+    #create .create-inner {
+        width: 100%; 
+        display: flex;
+        justify-content: center; 
+    }
+
+    #create .create-inner img {
+        position: relative;
+        width: 100vw;
+        max-width: none;
+        align-self: center;
+        object-fit: contain;
+        height: auto;
+        left: 35vw;
+        top: -15vw;
+    }
+
+    #create .base,
+    #create .toppings,
+    #create .toppings-icons {
+        text-align: center; /* Центрування тексту */
+    }
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* #root {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+} */
+  
+:root {
+    --black: #191919;
+    --orange: #f15025;
+    --background: #F1F0E5;
+    --yellow: #FBAB21;
+}
+  
+h1, h2, h3, h4, p {
+    color: var(--black);
+    margin: 0;
+    padding: 0;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+.cooks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 170px;
+    position: relative;
+}
+
+.cooks .container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.chopsticks {
+    position: absolute;
+    top: -100px;
+    left: 950px;
+    width: 459.315px;
+    height: auto;
+    object-fit: contain;
+}
+
+.cooks .container .background-text1 {
+    position: absolute;
+    color: var(--black);
+    opacity: 20%;
+    font-size: 140px;
+    font-family: "Inter", sans-serif; 
+    top: 130px;
+    left: -100px;
+    z-index: 0;
+}
+
+.cooks .container .background-text2 {
+    position: absolute;
+    color: var(--black);
+    opacity: 20%;
+    font-size: 140px;
+    font-family: "Inter", sans-serif; 
+    top: 130px;
+    right: -100px;
+    z-index: 0;
+}
+
+.chef-img, .sous-chef-img {
+    display: inline-flex;
+    height: 310px;
+    width: 310px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.cooks-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 293px;
+}
+
+.cooks-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 130px; 
+}
+
+.chef, .sous-chef {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.chef h4, .sous-chef h4 {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 163px;
+}
+
+.cooks-content p {
+    text-align: center;
+    color: var(--black);
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    width: 470px;
+    margin-top: 0px;
+}
+
+
+

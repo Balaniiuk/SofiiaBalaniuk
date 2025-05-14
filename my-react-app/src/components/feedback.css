@@ -1,0 +1,245 @@
+.feedback .container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 120px;
+}
+
+.feedback h2 {
+    text-align: center;
+}
+
+.alltogether {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+}
+
+.emty {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 653px;
+}
+
+.comment {
+    color: rgba(25, 25, 25, 0.50);
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 50px;
+}
+
+.feedback .head .text p {
+    color: var(--black);
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.comment-item {
+    font-size: 18px;
+}
+
+.img-n-form {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+} 
+
+.img-n-form p {
+    font-size: 12px;
+}
+
+.content {
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 150% */
+}
+
+.content > input {
+    border: none;
+    margin-left: 0;
+}
+
+.commentbox img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.user {
+    bottom: none;
+    outline: none;
+    margin: 5px 0;
+    color: var(--black);
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #F1F0E5;
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 136.364% */
+    text-transform: uppercase;
+}
+
+.commentinput > input {
+    border: none;
+    background: #F1F0E5;
+    padding: 10px;
+    margin-top: 30px;
+    padding-left: none;
+    outline: none;
+    border-bottom: 2px solid var(--black);
+    width: 553px;
+    color: rgba(25, 25, 25, 0.50);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.publish-button {
+    margin-left: 406px;
+    display: inline-flex;
+    height: 54px;
+    padding: 14px 27px;
+    justify-content: center;
+    align-items: center;
+
+    color: #F1F0E5;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 166.667% */
+    color: var(--background);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: var(--yellow);
+    width: 147px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.publish-button.abled {
+    background: #f15025 !important;
+    color: #F1F0E5 !important;
+}
+
+.notify {
+    color: #191919;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+}
+
+.policy {
+    margin: 20px 0;
+    font-family: "Inter", sans-serif;
+    color: rgba(25, 25, 25, 0.50);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 560px;
+    line-height: 32px; /* 160% */
+}
+
+.policy a {
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.notify {
+    display: flex;
+    align-items: center;
+}
+
+.notify > input {
+    margin-right: 10px;
+
+    /* не працює */
+    width: 20px;
+    height: 20px;
+    background-color: none;
+    border: 1px solid var(--yellow);
+}
+
+.parents {
+    display: flex;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 30px;
+}
+
+.parents h4 {
+    color: black;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 136.364% */
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.parents p {
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 160% */
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.parents > img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.engagements {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.engagements img {
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: black;
+    opacity: 0.5;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
