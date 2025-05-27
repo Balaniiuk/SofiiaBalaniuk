@@ -65,8 +65,8 @@ const Menu = () => {
                 className={`menu-item ${dish.id === 1 ? 'first-of-type' : dish.id === 2 ? 'second-of-type' : 'third-of-type'}`}
               >
                 <div>
-                  <h3 className={`title${dish.id}`}>{dish.name}</h3>
-                  <div className={`menu-item title${dish.id}`}>
+                  <h3 className={`menu-item title${dish.id}`}>{dish.name}</h3>
+                  <div className={`menu-item receipt${dish.id}`}>
                     <div className={`menu-item ingredients${dish.id}`}>
                       {dish.ingredients.map((ingredient, index) => (
                         <p key={index}>{ingredient}</p>
