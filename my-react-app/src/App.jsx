@@ -12,9 +12,32 @@ import logo from "/Logo.png";
 import copy from "/Лого копія.png";
 import line from "/Line 8.png";
 
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from './components/firebase';
 
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Слідкуємо за змінами статусу авторизації
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      console.log("User logged out");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
     <Router>
       <div>
@@ -32,7 +55,12 @@ function App() {
                   <Link to="/cooks">Our Cooks</Link>
                   <Link to="/about">About Us</Link>
                   <Link to="/feedback">Feedback</Link>
-                  <Link to="/signup">Sign Up</Link>
+                  
+                  {!user ? (
+                    <Link to="/signup">Sign Up</Link>
+                  ) : (
+                    <a onClick={handleLogout}>Log Out</a>
+                    )}
               </nav>
 
               <div className="burger">
@@ -73,7 +101,12 @@ function App() {
                   <Link to="/cooks">Our Cooks</Link>
                   <Link to="/feedback">Feedback</Link>
                   <Link to="/about">About Us</Link>
-                  <Link to="/signup">Sign Up</Link>
+                  
+                  {!user ? (
+                    <Link to="/signup">Sign Up</Link>
+                  ) : (
+                    <a onClick={handleLogout}>Log Out</a>
+                  )}
               </nav>
             </div>
           </div>
