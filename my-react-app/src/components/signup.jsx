@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import "./signup.css";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,8 @@ const Signup = () => {
   const [isAccepted, setIsAccepted] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  
+  const navigate = useNavigate();
 
     // Перевірка валідності форми: всі три умови повинні бути виконані
   const isFormValid = email.trim() !== "" && password.trim() !== "" && isAccepted;
@@ -17,17 +20,13 @@ const Signup = () => {
     setError("");
     setSuccess("");
 
-    if (!agree) {
-      setError("You must accept the terms.");
-      return;
-    }
-
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setSuccess("Account created successfully!");
       setEmail("");
       setPassword("");
-      setAgree(false);
+      setIsAccepted(false);
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -85,6 +84,7 @@ const Signup = () => {
                     <button
                         className={`signin ${isFormValid ? "signin-active" : ""}`}
                         disabled={!isFormValid} // Деактивація кнопки, якщо форма не валідна
+                        onClick={handleSignup}
                     >
                         <p className="text-9">Sign in</p>
                     </button>
