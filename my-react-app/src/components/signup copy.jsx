@@ -1,0 +1,51 @@
+import React from "react";
+import "./signup.css"; 
+
+const Signup = () => {
+    return (
+      <div className="signup">
+            <div className="maincontent">
+                <p className="text-1">Create an account</p>
+
+                <div className="forms">
+                    <div className="email">
+                        <label className="text-3" htmlFor="email">Email</label>
+                        <input
+                          id="email"
+                          type="email"
+                          className="email-input"
+                          placeholder="Your email"
+                        />
+                    </div>
+                    
+                    <div className="password">
+                        <label className="text-4" htmlFor="password">Password</label>
+                        <input
+                          id="password"
+                          type="password"
+                          className="password-input"
+                          placeholder="Enter your password"
+                        />
+                        <p className="text-7">Use at least 8 characters</p>
+                    </div>
+                </div>
+
+                <div className="acception">
+                    <input type="checkbox" id="terms" className="ellipse-2" />
+                    <label htmlFor="terms" className="text-8">
+                        I accept the terms and privacy policy
+                    </label>
+                </div>
+
+                <div className="buttons">
+                    <button className="signin">
+                        <p className="text-9">Sign in</p>
+                    </button>
+                    <p className="text-1-3">Already have an account? Log in</p>
+                </div>
+            </div>
+      </div>
+    );
+};
+
+export default Signup;

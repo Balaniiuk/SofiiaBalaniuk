@@ -3,6 +3,7 @@ import './feedback.css';
 import userIcon from "../assets/images/User.png";
 import { onAuthStateChanged } from 'firebase/auth';
 import { createComment, loadComments, auth } from './firebase';
+import { Link } from 'react-router-dom';
 
 const Feedback = () => {
   const [comments, setComments] = useState([]);
@@ -101,7 +102,7 @@ const Feedback = () => {
                   </>
                 ) : (
                   <div className="not-logged-in">
-                    <p>Please <a href="/login">log in</a> to leave a comment.</p>
+                    <p>Please <Link to="/signup">log in</Link> to leave a comment.</p>
                   </div>
                 )}
 

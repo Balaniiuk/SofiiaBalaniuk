@@ -1,51 +1,92 @@
-import React from "react";
-import "./signup.css"; 
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
+import "./signup.css";
 
 const Signup = () => {
-    return (
-      <div className="signup">
-            <div className="maincontent">
-                <p className="text-1">Create an account</p>
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-                <div className="forms">
-                    <div className="email">
-                        <label className="text-3" htmlFor="email">Email</label>
-                        <input
-                          id="email"
-                          type="email"
-                          className="email-input"
-                          placeholder="Your email"
-                        />
-                    </div>
-                    
-                    <div className="password">
-                        <label className="text-4" htmlFor="password">Password</label>
-                        <input
-                          id="password"
-                          type="password"
-                          className="password-input"
-                          placeholder="Enter your password"
-                        />
-                        <p className="text-7">Use at least 8 characters</p>
-                    </div>
-                </div>
+  const handleSignup = async () => {
+    setError("");
+    setSuccess("");
 
-                <div className="acception">
-                    <input type="checkbox" id="terms" className="ellipse-2" />
-                    <label htmlFor="terms" className="text-8">
-                        I accept the terms and privacy policy
-                    </label>
-                </div>
+    if (!agree) {
+      setError("You must accept the terms.");
+      return;
+    }
 
-                <div className="buttons">
-                    <button className="signin">
-                        <p className="text-9">Sign in</p>
-                    </button>
-                    <p className="text-1-3">Already have an account? Log in</p>
-                </div>
-            </div>
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      setSuccess("Account created successfully!");
+      setEmail("");
+      setPassword("");
+      setAgree(false);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return (
+    <div className="signup">
+      <div className="maincontent">
+        <p className="text-1">Create an account</p>
+
+        <div className="forms">
+          <div className="email">
+            <label className="text-3" htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              className="email-input"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="password">
+            <label className="text-4" htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              className="password-input"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <p className="text-7">Use at least 8 characters</p>
+          </div>
+        </div>
+
+        <div className="acception">
+          <input
+            type="checkbox"
+            id="terms"
+            className="ellipse-2"
+            checked={agree}
+            onChange={(e) => setAgree(e.target.checked)}
+          />
+          <label htmlFor="terms" className="text-8">
+            I accept the terms and privacy policy
+          </label>
+        </div>
+
+        {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
+
+        <div className="buttons">
+          <button className="signin" onClick={handleSignup}>
+            <p className="text-9">Sign up</p>
+          </button>
+          <p className="text-1-3">Already have an account? Log in</p>
+        </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Signup;
