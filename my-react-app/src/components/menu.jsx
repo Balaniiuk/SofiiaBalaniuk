@@ -1,91 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './menu.css';
 import tonkotsu from '../assets/images/Classic Tonkotsu Ramen.png';
 import veganMiso from '../assets/images/Vegan Miso Ramen.png';
 import spicyShoyu from '../assets/images/Рамен3.png';
+import { fetchMenu } from './firebase'; // припускаємо, що ця функція імпортується
+
+const imageMap = {
+  tonkotsu: tonkotsu,
+  miso: veganMiso,
+  shoyu: spicyShoyu,
+};
 
 const Menu = () => {
-  const [dishes, setDishes] = useState([
-    {
-      id: 1,
-      name: 'Classic Tonkotsu Ramen',
-      price: 260,
-      weight: ['300 ml', '150 g', '80 g', '1/2 pc', '3 pc'],
-      ingredients: [
-        'Tonkotsu broth (pork-based)',
-        'Wheat noodles',
-        'Chashu (pork belly)',
-        'Boiled marinated egg',
-        'Narutomaki (fish cake)',
-        'Green onions',
-        'Bamboo shoots',
-        'Sesame seeds',
-      ],
-      image: tonkotsu,
-      className: 'tonkotsu',
-    },
-    {
-      id: 2,
-      name: 'Vegan Miso Ramen',
-      price: 230,
-      weight: ['300 ml', '150 g', '1/2 pc', '3 pc'],
-      ingredients: [
-        'Vegetable miso broth',
-        'Wheat noodles',
-        'Mushrooms (champignons)',
-        'Nori seaweed',
-        'Sesame seeds',
-        'Green onions',
-        'Bamboo shoots',
-      ],
-      image: veganMiso,
-      className: 'miso',
-    },
-  ]);
-
+  const [dishes, setDishes] = useState([]);
   const [showMore, setShowMore] = useState(false);
   const [isAscending, setIsAscending] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  const thirdDish = {
-    id: 3,
-    name: 'Spicy Shoyu Ramen',
-    price: 280,
-    weight: ['300 ml', '150 g', '80 g', '1 pc', '2 pc'],
-    ingredients: [
-      'Shoyu broth (soy-based)',
-      'Wheat noodles',
-      'Spicy chili oil',
-      'Chashu (pork belly)',
-      'Boiled egg',
-      'Green onions',
-      'Bamboo shoots',
-    ],
-    image: spicyShoyu,
-    className: 'shoyu',
-  };
+  useEffect(() => {
+    const loadMenu = async () => {
+      try {
+        const data = await fetchMenu();
+        const menuWithImages = data.map((dish) => ({
+          ...dish,
+          image: imageMap[dish.className],
+        }));
+        setDishes(menuWithImages);
+      } catch (error) {
+        console.error('Помилка завантаження меню:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMenu();
+  }, []);
 
   const sortDishes = () => {
-    const sortedDishes = [...dishes].sort((a, b) =>
+    const sorted = [...dishes].sort((a, b) =>
       isAscending ? a.price - b.price : b.price - a.price
     );
-
-    if (showMore) {
-      setDishes(sortedDishes); 
-    } else {
-      setDishes(sortedDishes.slice(0, 2)); 
-    }
-
+    setDishes(sorted);
     setIsAscending(!isAscending);
   };
 
-  // const toggleViewMore = () => {
-  //   setShowMore((prev) => !prev);
-
-  //   if (!showMore) {
-      
-  //     setDishes((prevDishes) => [...prevDishes, thirdDish]);
-  //   }
-  // };
+  const visibleDishes = showMore ? dishes : dishes.slice(0, 2);
 
   return (
     <section className="menu">
@@ -96,69 +55,49 @@ const Menu = () => {
           SORT BY PRICE ({isAscending ? 'Ascending' : 'Descending'})
         </button>
 
-        <div className="menu-items">
-          {dishes.map((dish) => (
-          <div
-            key={dish.id}
-            className={`menu-item ${dish.id === 1 ? 'first-of-type' : 'second-of-type'}`}
-            >
+        {loading ? (
+          <p className="loading-text">Завантаження меню...</p>
+        ) : (
+          <div className="menu-items">
+            {visibleDishes.map((dish) => (
+              <div
+                key={dish.id}
+                className={`menu-item ${dish.id === 1 ? 'first-of-type' : dish.id === 2 ? 'second-of-type' : 'third-of-type'}`}
+              >
+                <div>
+                  <h3 className={`title${dish.id}`}>{dish.name}</h3>
+                  <div className={`menu-item title${dish.id}`}>
+                    <div className={`menu-item ingredients${dish.id}`}>
+                      {dish.ingredients.map((ingredient, index) => (
+                        <p key={index}>{ingredient}</p>
+                      ))}
+                    </div>
 
-              <div>
-                <h3
-                  className={`menu-item ${dish.id === 1 ? 'title1' : 'title2'}`}
-                >{dish.name}</h3>
-                <div className={`menu-item ${dish.id === 1 ? 'receipt1' : 'receipt2'}`}>
-                  <div className={`menu-item ${dish.id === 1 ? 'ingredients1' : 'ingredients2'}`}>
-                    {dish.ingredients.map((ingredient, index) => (
-                      <p key={index}>{ingredient}</p>
-                    ))}
-                  </div>
-
-                  <div className={`menu-item ${dish.id === 1 ? 'weight1' : 'weight2'}`}>
-                    {dish.weight.map((w, index) => (
-                      <p key={index}>{w}</p>
-                    ))}
-                    <div className={`menu-item ${dish.id === 1 ? 'cost1' : 'cost2'}`}>{dish.price} UAH</div>
+                    <div className={`menu-item weight${dish.id}`}>
+                      {dish.weight.map((w, index) => (
+                        <p key={index}>{w}</p>
+                      ))}
+                      <div className={`menu-item cost${dish.id}`}>{dish.price} UAH</div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className={`menu-item-image ${dish.id === 1 ? 'tonkotsu' : 'miso'}`}>
-                <img src={dish.image} alt={dish.name} />
-              </div>
-            </div>
-          ))}
-          {showMore && (
-            <div className="third-of-type">
-              <div>
-                <h3 className="title3">{thirdDish.name}</h3>
-                <div className="receipt3">
-                  <div className="ingredients3">
-                    {thirdDish.ingredients.map((ingredient, index) => (
-                      <p key={index}>{ingredient}</p>
-                    ))}
-                  </div>
-                  <div className="weight3">
-                    {thirdDish.weight.map((w, index) => (
-                      <p key={index}>{w}</p>
-                    ))}
-                    <div className="cost3">{thirdDish.price} UAH</div>
-                  </div>
+                <div className={`menu-item-image ${dish.className}`}>
+                  <img src={dish.image} alt={dish.name} />
                 </div>
               </div>
-              <div className="shoyu">
-                <img src={thirdDish.image} alt={thirdDish.name} />
-              </div>
-            </div>
-          )}
-        </div>
-        
-        <button
-          className="view-more-button"
-          onClick={() => setShowMore((prev) => !prev)}
-        >
-          {showMore ? 'VIEW LESS' : 'VIEW MORE'}
-        </button>
+            ))}
+          </div>
+        )}
+
+        {!loading && (
+          <button
+            className="view-more-button"
+            onClick={() => setShowMore((prev) => !prev)}
+          >
+            {showMore ? 'VIEW LESS' : 'VIEW MORE'}
+          </button>
+        )}
       </div>
     </section>
   );
