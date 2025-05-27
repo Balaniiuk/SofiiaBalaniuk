@@ -6,9 +6,12 @@ import "./signup.css";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [agree, setAgree] = useState(false);
+  const [isAccepted, setIsAccepted] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+    // Перевірка валідності форми: всі три умови повинні бути виконані
+  const isFormValid = email.trim() !== "" && password.trim() !== "" && isAccepted;
 
   const handleSignup = async () => {
     setError("");
@@ -67,8 +70,8 @@ const Signup = () => {
             type="checkbox"
             id="terms"
             className="ellipse-2"
-            checked={agree}
-            onChange={(e) => setAgree(e.target.checked)}
+            checked={isAccepted}
+            onChange={(e) => setIsAccepted(e.target.checked)} // Оновлення стану чекбокса
           />
           <label htmlFor="terms" className="text-8">
             I accept the terms and privacy policy
@@ -78,15 +81,18 @@ const Signup = () => {
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
 
-        <div className="buttons">
-          <button className="signin" onClick={handleSignup}>
-            <p className="text-9">Sign up</p>
-          </button>
-          <p className="text-1-3">Already have an account? Log in</p>
-        </div>
+                <div className="buttons">
+                    <button
+                        className={`signin ${isFormValid ? "signin-active" : ""}`}
+                        disabled={!isFormValid} // Деактивація кнопки, якщо форма не валідна
+                    >
+                        <p className="text-9">Sign in</p>
+                    </button>
+                    <p className="text-1-3">Already have an account? Log in</p>
+                </div>
+            </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default Signup;
