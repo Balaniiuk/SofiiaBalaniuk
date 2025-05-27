@@ -4,28 +4,32 @@
     background-color: #f1f0e5;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 110px; /* для вертикального відступу зверху */
+    
+    padding-top: 70px; 
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: #001a23;
 }
 
 .maincontent {
-    height: 804px;
+    /* height: 804px;
     width: 538px;
     display: flex;
     flex-direction: column;
-    gap: 32px; /* відступи між блоками */
+    gap: 32px;  */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 32px;
 }
 
 .text-1 {
     font-family: 'Anton', sans-serif;
     font-size: 73px;
     color: #191919;
-    text-align: left;
-    margin: 0;
-    line-height: 1.1;
+    text-align: center;
+    justify-self: start;
+    line-height: auto;
 }
 
 .forms {
@@ -41,25 +45,24 @@
     gap: 8px;
 }
 
-.email > .email, /* внутрішній контейнер для input placeholder */
-.password > .password { /* внутрішній контейнер для input і іконки */
+.email > .email,
+.password > .password {
     border-radius: 14.5px;
     display: flex;
-    align-items: center;
+    align-items: left;
     padding: 17px 24px;
     border: 1.2px solid rgba(49, 73, 60, 0.3);
     gap: 14.5px;
-    background-color: white;
+    line-height: auto;
+    background-color: none;
 }
 
 .email > .email {
     justify-content: flex-start;
-    height: 103px;
 }
 
 .password > .password {
     justify-content: space-between;
-    height: 56px; /* для іконки і тексту */
 }
 
 .text-2, .text-5 {
@@ -69,7 +72,7 @@
     margin: 0;
 }
 
-.text-3, .text-4 {
+.password .text-3, .text-4 {
     font-family: 'Inter', sans-serif;
     font-size: 19.27px;
     color: #001a23;
@@ -103,13 +106,15 @@
     font-size: 16.86px;
     color: #001a23;
     margin: 0;
+    flex-direction: start;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 436px;
+    width: 460px;
+    background: none;
 }
 
 .signin {
@@ -130,44 +135,15 @@
     margin: 0;
 }
 
-.or {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 434px;
-    color: rgba(49, 73, 60, 0.3);
-    font-family: 'Poppins', sans-serif;
-    font-size: 16.86px;
-}
-
 .line-1, .line-2 {
     height: 1.2px;
     width: 185px;
     background-color: rgba(49, 73, 60, 0.3);
 }
 
-.google {
-    border-radius: 14.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 17px 70px;
-    gap: 14.5px;
-    border: 1.2px solid #31493c;
-    cursor: pointer;
-    background-color: white;
-}
-
 .img-1-1 {
     height: 24px;
     width: 24px;
-}
-
-.text-1-2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 19.27px;
-    color: #001a23;
-    margin: 0;
 }
 
 .text-1-3 {
