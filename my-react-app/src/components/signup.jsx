@@ -34,9 +34,6 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      {showLogin ? (
-        <Login /> 
-      ) : (
         <div className="maincontent">
             <p className="text-1">Create an account</p>
 
@@ -91,7 +88,7 @@ const Signup = () => {
                     >
                         <p className="text-9">Sign in</p>
                     </button>
-                    <p className="text-1-3">Already have an account? Log in</p>
+                    <p className="text-1-3">Already have an account? <a onClick={() => navigate("/login")}>Log in</a></p>
                 </div>
             </div>
       </div>

@@ -3,24 +3,24 @@ import {getFirestore} from "firebase/firestore";
 import { collection, getDocs, setDoc, doc, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyClSGWysRfBpRhJcWUUs7S4XTh9dFs5w5A",
-//   authDomain: "login-auth-ec286.firebaseapp.com",
-//   projectId: "login-auth-ec286",
-//   storageBucket: "login-auth-ec286.firebasestorage.app",
-//   messagingSenderId: "36581411017",
-//   appId: "1:36581411017:web:ed5c37bd59a7de16ff6518"
-// };
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCBWxSh0IxEA_6AWncsiME-fU0v2wTfp88",
-  authDomain: "tonkotsu-tales.firebaseapp.com",
-  projectId: "tonkotsu-tales",
-  storageBucket: "tonkotsu-tales.firebasestorage.app",
-  messagingSenderId: "501202065209",
-  appId: "1:501202065209:web:d5ae97255976cbf07d7ae8",
-  measurementId: "G-2GER19G7G8"
+  apiKey: "AIzaSyClSGWysRfBpRhJcWUUs7S4XTh9dFs5w5A",
+  authDomain: "login-auth-ec286.firebaseapp.com",
+  projectId: "login-auth-ec286",
+  storageBucket: "login-auth-ec286.firebasestorage.app",
+  messagingSenderId: "36581411017",
+  appId: "1:36581411017:web:ed5c37bd59a7de16ff6518"
 };
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCBWxSh0IxEA_6AWncsiME-fU0v2wTfp88",
+//   authDomain: "tonkotsu-tales.firebaseapp.com",
+//   projectId: "tonkotsu-tales",
+//   storageBucket: "tonkotsu-tales.firebasestorage.app",
+//   messagingSenderId: "501202065209",
+//   appId: "1:501202065209:web:d5ae97255976cbf07d7ae8",
+//   measurementId: "G-2GER19G7G8"
+// };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

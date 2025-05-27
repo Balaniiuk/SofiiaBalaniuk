@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "./login.css";
+// import "./signup.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAccepted, setIsAccepted] = useState(false);
   const isFormValid = email.trim() !== "" && password.trim() !== "" && isAccepted;
+
+  const navigate = useNavigate();
 
   return (
     <div className="login">
@@ -59,7 +63,7 @@ const Login = () => {
           >
             <p className="text-9">Log in</p>
           </button>
-          <p className="text-1-3">Don't have an account? <a>Sign up</a></p>
+          <p className="text-1-3">Don't have an account? <a onClick={() => navigate("/signup")}>Sign up</a></p>
         </div>
       </div>
     </div>
