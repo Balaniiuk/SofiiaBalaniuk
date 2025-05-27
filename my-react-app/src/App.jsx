@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Login from './components/login';
 import Signup from './components/signup';
 import About from './components/about';
 import Cooks from './components/cooks';
@@ -84,6 +85,7 @@ function App() {
               <Route path="/feedback" element={<Feedback />} />
               <Route path="/about" element={<About />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
           </Routes>
         </main>
 

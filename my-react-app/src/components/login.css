@@ -1,4 +1,4 @@
-.signup {
+.login {
     height: 1024px;
     width: 1440px;
     background-color: #f1f0e5;
@@ -111,20 +111,19 @@
     background: none;
 }
 
-.signin {
+.login {
     border-radius: 14.5px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 17px 70px;
-    background-color: #fbab20;
     cursor: pointer;
     border: none;
     cursor: not-allowed;
     transition: background-color 0.3s ease;
 }
 
-.signin-active {
+.login-active {
     background-color: #F15025; 
     cursor: pointer;
 }

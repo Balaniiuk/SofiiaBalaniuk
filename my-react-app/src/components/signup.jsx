@@ -34,35 +34,38 @@ const Signup = () => {
 
   return (
     <div className="signup">
-      <div className="maincontent">
-        <p className="text-1">Create an account</p>
+      {showLogin ? (
+        <Login /> 
+      ) : (
+        <div className="maincontent">
+            <p className="text-1">Create an account</p>
 
-        <div className="forms">
-          <div className="email">
-            <label className="text-3" htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              className="email-input"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+            <div className="forms">
+                <div className="email">
+                    <label className="text-3" htmlFor="email">Email</label>
+                    <input
+                    id="email"
+                    type="email"
+                    className="email-input"
+                    placeholder="Your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
 
-          <div className="password">
-            <label className="text-4" htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              className="password-input"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <p className="text-7">Use at least 8 characters</p>
-          </div>
-        </div>
+                <div className="password">
+                    <label className="text-4" htmlFor="password">Password</label>
+                    <input
+                    id="password"
+                    type="password"
+                    className="password-input"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <p className="text-7">Use at least 8 characters</p>
+                </div>
+            </div>
 
         <div className="acception">
           <input
