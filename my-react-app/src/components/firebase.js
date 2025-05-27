@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyClSGWysRfBpRhJcWUUs7S4XTh9dFs5w5A",
@@ -23,6 +24,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+export const auth = getAuth(app);
+
 
 // Отримання документів з колекції menu
 export const fetchMenu = async () => {
@@ -32,6 +35,18 @@ export const fetchMenu = async () => {
   const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   console.log(data);
   return data;
+};
+
+// Завантаження всіх коментарів з Firestore
+export const loadComments = async (setComments, setLoading) => {
+  const snapshot = await getDocs(collection(db, 'comments'));
+  const commentsData = snapshot.docs.map(doc => doc.data());
+  setComments(commentsData);
+  setLoading(false);
+};
+
+export const createComment = async (newComment) => {
+  addDoc(collection(db, 'comments'), newComment);
 };
 
 // Дані меню

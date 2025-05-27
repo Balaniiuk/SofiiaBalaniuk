@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './feedback.css';
-import user from "../assets/images/User.png";
+import userIcon from "../assets/images/User.png";
+import { onAuthStateChanged } from 'firebase/auth';
+import { createComment, loadComments, auth } from './firebase';
 
 const Feedback = () => {
   const [comments, setComments] = useState([]);
-  const [userName, setUserName] = useState('');
   const [userComment, setUserComment] = useState('');
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handlePublish = () => {
-    if (userName.trim() && userComment.trim()) {
-      setComments([...comments, { name: userName, comment: userComment }]);
-      setUserName('');
+  useEffect(() => {
+    // Відстеження автентифікації користувача
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+
+    loadComments(setComments, setLoading);
+    return () => unsubscribe();
+  }, []);
+
+  const handlePublish = async () => {
+    if (userComment.trim() && currentUser) {
+      const newComment = {
+        email: currentUser.email,
+        comment: userComment.trim(),
+      };
+
+      await createComment(newComment);
+
+      setComments([...comments, newComment]);
       setUserComment('');
     }
   };
 
-  const isButtonEnabled = userName.trim() && userComment.trim();
+  const isButtonEnabled = userComment.trim().length > 0;
 
   return (
     <section id="feedback" className="feedback">
@@ -31,57 +50,64 @@ const Feedback = () => {
                 <p>We are happy to hear from you</p>
               </div>
               <div className="comments">
-                {comments.map((item, index) => (
-                  <div key={index} className="comment-item">
-                    <strong>{item.name}:</strong> {item.comment}
-                  </div>
-                ))}
+                {loading ? (
+                  <p>Loading comments...</p>
+                ) : comments.length > 0 ? (
+                  comments.map((item, index) => (
+                    <div key={index} className="comment-item">
+                      <strong>{item.email}:</strong> {item.comment}
+                    </div>
+                  ))
+                ) : (
+                  <p>No comments yet.</p>
+                )}
               </div>
             </div>
 
             <div className="img-n-form">
               <div className="commentbox">
-                <img src={user} alt="user" />
+                <img src={userIcon} alt="user" />
               </div>
 
               <div className="form">
-                <div className="content">
-                  <p>Comment as:</p>
-                  <input
-                    type="text"
-                    placeholder="Enter your name..."
-                    className="user"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                  />
-                </div>
-
-                <div className="commentinput">
-                  <input
-                    type="text"
-                    placeholder="Enter your comment..."
-                    className="usercomment"
-                    value={userComment}
-                    onChange={(e) => setUserComment(e.target.value)}
-                  />
-                  <div className="bottom-bar">
-                    <div className="buttons">
-                      <button
-                        type="submit"
-                        id="publish"
-                        className={`publish-button ${isButtonEnabled ? 'abled' : ''}`}
-                        onClick={handlePublish}
-                        disabled={!isButtonEnabled}
-                      >
-                        PUBLISH
-                      </button>
+                {currentUser ? (
+                  <>
+                    <div className="content">
+                      <p>Comment as: <strong>{currentUser.email}</strong></p>
                     </div>
+
+                    <div className="commentinput">
+                      <input
+                        type="text"
+                        placeholder="Enter your comment..."
+                        className="usercomment"
+                        value={userComment}
+                        onChange={(e) => setUserComment(e.target.value)}
+                      />
+                      <div className="bottom-bar">
+                        <div className="buttons">
+                          <button
+                            type="submit"
+                            id="publish"
+                            className={`publish-button ${isButtonEnabled ? 'abled' : ''}`}
+                            onClick={handlePublish}
+                            disabled={!isButtonEnabled}
+                          >
+                            PUBLISH
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="not-logged-in">
+                    <p>Please <a href="/login">log in</a> to leave a comment.</p>
                   </div>
-                </div>
+                )}
 
                 <p className="policy">
                   This site is protected by reCAPTCHA and the Google{' '}
-                  <a href="">privacy policy</a> and <a href="">Terms of Service</a> apply.
+                  <a href="#">privacy policy</a> and <a href="#">Terms of Service</a> apply.
                 </p>
               </div>
             </div>
