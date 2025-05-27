@@ -1,0 +1,180 @@
+.signup {
+    height: 1024px;
+    width: 1440px;
+    background-color: #f1f0e5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 110px; /* для вертикального відступу зверху */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #001a23;
+}
+
+.maincontent {
+    height: 804px;
+    width: 538px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* відступи між блоками */
+}
+
+.text-1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 73px;
+    color: #191919;
+    text-align: left;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 434px;
+}
+
+.email, .password {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.email > .email, /* внутрішній контейнер для input placeholder */
+.password > .password { /* внутрішній контейнер для input і іконки */
+    border-radius: 14.5px;
+    display: flex;
+    align-items: center;
+    padding: 17px 24px;
+    border: 1.2px solid rgba(49, 73, 60, 0.3);
+    gap: 14.5px;
+    background-color: white;
+}
+
+.email > .email {
+    justify-content: flex-start;
+    height: 103px;
+}
+
+.password > .password {
+    justify-content: space-between;
+    height: 56px; /* для іконки і тексту */
+}
+
+.text-2, .text-5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19.27px;
+    color: rgba(49, 73, 60, 0.3);
+    margin: 0;
+}
+
+.text-3, .text-4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19.27px;
+    color: #001a23;
+    margin: 0;
+}
+
+.text-7 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16.86px;
+    color: #001a23;
+    margin: 0;
+}
+
+.acception {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 331px;
+}
+
+.ellipse-2 {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 1.2px solid #001a23;
+    cursor: pointer;
+}
+
+.text-8 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16.86px;
+    color: #001a23;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 436px;
+}
+
+.signin {
+    border-radius: 14.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 70px;
+    background-color: #fbab20;
+    cursor: pointer;
+    border: none;
+}
+
+.text-9 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19.27px;
+    color: #f1f0e5;
+    margin: 0;
+}
+
+.or {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 434px;
+    color: rgba(49, 73, 60, 0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.86px;
+}
+
+.line-1, .line-2 {
+    height: 1.2px;
+    width: 185px;
+    background-color: rgba(49, 73, 60, 0.3);
+}
+
+.google {
+    border-radius: 14.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 70px;
+    gap: 14.5px;
+    border: 1.2px solid #31493c;
+    cursor: pointer;
+    background-color: white;
+}
+
+.img-1-1 {
+    height: 24px;
+    width: 24px;
+}
+
+.text-1-2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 19.27px;
+    color: #001a23;
+    margin: 0;
+}
+
+.text-1-3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16.86px;
+    color: #001a23;
+    text-align: center;
+    cursor: pointer;
+    margin: 12px 0 0 0;
+}

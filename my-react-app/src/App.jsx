@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Signup from './components/signup';
 import About from './components/about';
 import Cooks from './components/cooks';
 import Feedback from './components/feedback';
@@ -10,6 +11,7 @@ import Create from "./components/create";
 import logo from "/Logo.png";
 import copy from "/Лого копія.png";
 import line from "/Line 8.png";
+
 
 
 function App() {
@@ -25,12 +27,12 @@ function App() {
               </Link>
 
               <nav className="nav">
-        
                   <Link to="/create">Create Own One</Link>
                   <Link to="/menu">Menu</Link>
                   <Link to="/cooks">Our Cooks</Link>
                   <Link to="/about">About Us</Link>
                   <Link to="/feedback">Feedback</Link>
+                  <Link to="/signup">Sign Up</Link>
               </nav>
 
               <div className="burger">
@@ -45,6 +47,7 @@ function App() {
 
         <main>
           <Routes>
+              
               <Route path="/" element={<MainPage />} />
               <Route path="/MainPage" element={<MainPage />} />
               <Route path="/create" element={<Create />} />
@@ -52,6 +55,7 @@ function App() {
               <Route path="/cooks" element={<Cooks />} />
               <Route path="/feedback" element={<Feedback />} />
               <Route path="/about" element={<About />} />
+              <Route path="/signup" element={<Signup />} />
           </Routes>
         </main>
 
@@ -69,6 +73,7 @@ function App() {
                   <Link to="/cooks">Our Cooks</Link>
                   <Link to="/feedback">Feedback</Link>
                   <Link to="/about">About Us</Link>
+                  <Link to="/signup">Sign Up</Link>
               </nav>
             </div>
           </div>
