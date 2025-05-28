@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./login.css";
-// import "./signup.css";
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,15 @@ const Login = () => {
   const isFormValid = email.trim() !== "" && password.trim() !== "" && isAccepted;
 
   const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/"); // Переадресація на головну після успішного входу
+    } catch (err) {
+      alert("Login failed: " + err.message); // або setError(err.message), якщо маєш стан для помилок
+    }
+  };
 
   return (
     <div className="login">
@@ -58,8 +68,9 @@ const Login = () => {
 
         <div className="buttons">
           <button
-            className={`login ${isFormValid ? "login-active" : ""}`}
-            disabled={!isFormValid} 
+            className={`login_btn ${isFormValid ? "login-active" : ""}`}
+            disabled={!isFormValid}
+            onClick={handleLogin}
           >
             <p className="text-9">Log in</p>
           </button>
