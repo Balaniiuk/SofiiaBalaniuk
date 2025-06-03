@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './feedback.css';
 import userIcon from "../assets/images/User.png";
 import { onAuthStateChanged } from 'firebase/auth';
-import { createComment, loadComments, auth } from './firebase';
+import { createComment, loadComments, auth } from './firebase_lab5';
 import { Link } from 'react-router-dom';
 
 const Feedback = () => {
@@ -28,10 +28,12 @@ const Feedback = () => {
         comment: userComment.trim(),
       };
 
-      await createComment(newComment);
-
-      setComments([...comments, newComment]);
-      setUserComment('');
+      await createComment(newComment).then((response) => {
+        if (response) {
+          setComments([...comments, newComment]);
+        }
+        setUserComment('');
+      });
     }
   };
 

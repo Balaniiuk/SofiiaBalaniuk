@@ -3,7 +3,7 @@ import './menu.css';
 import tonkotsu from '../assets/images/Classic Tonkotsu Ramen.png';
 import veganMiso from '../assets/images/Vegan Miso Ramen.png';
 import spicyShoyu from '../assets/images/Рамен3.png';
-import { fetchMenu } from './firebase'; // припускаємо, що ця функція імпортується
+import { fetchMenu } from './firebase_lab5'; // припускаємо, що ця функція імпортується
 
 const imageMap = {
   tonkotsu: tonkotsu,
