@@ -102,7 +102,7 @@ const Feedback = () => {
                   </>
                 ) : (
                   <div className="not-logged-in">
-                    <p>Please <Link to="/signup">log in</Link> to leave a comment.</p>
+                    <p>Please <Link to="/login">log in</Link> to leave a comment.</p>
                   </div>
                 )}
 
